@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NATURE AQUARIUM | 架構範本</title>
+    <!-- 引入獨立的 CSS 檔案 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 頂部導覽列 -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">ShoalBiz 魚樂圈</a>
+            
+            <!-- 手機版漢堡按鈕 -->
+            <button class="hamburger-btn" id="hamburgerToggle" aria-label="選單">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- 導覽列分頁按鈕 -->
+            <nav id="navMenu">
+                <ul>
+                    <li><button class="tab-btn active" data-target="section1">用具</button></li>
+                    <li><button class="tab-btn" data-target="section2">藥水</button></li>
+                    <li><button class="tab-btn" data-target="section3">科普</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==================== 用具區 ==================== -->
+        <section id="section1" class="section-content active">
+            <div class="page-header">
+                <span class="en-subtitle">TOOLS & EQUIPMENT</span>
+                <h1>用具</h1>
+            </div>
+            <div class="empty-placeholder">施工中</div>
+        </section>
+
+        <!-- ==================== 藥水區 ==================== -->
+        <section id="section2" class="section-content">
+            <div class="page-header">
+                <span class="en-subtitle">LIQUIDS & CONDITIONERS</span>
+                <h1>藥水</h1>
+            </div>
+            <div class="empty-placeholder">施工中</div>
+        </section>
+
+        <!-- ==================== 科普區 ==================== -->
+        <section id="section3" class="section-content">
+            <div class="page-header">
+                <span class="en-subtitle">SCIENCE & KNOWLEDGE</span>
+                <h1>科普</h1>
+            </div>
+            <div class="empty-placeholder">施工中</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright © 2026 ShoalBiz 魚樂圈.All Rights Reserved</p>
+    </footer>
+
+    <!-- 互動腳本：分頁切換與手機版漢堡選單 -->
+    <script>
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const sections = document.querySelectorAll('.section-content');
+        const hamburgerToggle = document.getElementById('hamburgerToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        // 1. 分頁切換功能
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                sections.forEach(sec => sec.classList.remove('active'));
+
+                button.classList.add('active');
+                const targetId = button.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+
+                // 點擊後如果在手機版，自動收起選單
+                navMenu.classList.remove('open');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // 2. 手機版漢堡選單展開/收起
+        hamburgerToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
