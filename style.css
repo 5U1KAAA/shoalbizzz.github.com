@@ -1,4 +1,3 @@
-/* 基礎與日系極簡風格 */
 :root {
     --bg-color: #ffffff;
     --header-bg: #111111;
@@ -56,6 +55,11 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 32px;
+}
+
+/* 讓最後一個按鈕（分類/標籤）與前面三個拉開距離 */
+nav ul li:last-child {
+    margin-left: 44px;
 }
 
 nav button {
@@ -175,6 +179,16 @@ main {
 
 .card-item:hover .card-thumb img {
     transform: scale(1.04);
+}
+
+/* 單獨縮小特定白底商品圖的外部顯示比例 */
+.card-thumb.img-zoom-out {
+    background-color: #ffffff;
+    padding: 12%;
+}
+
+.card-thumb.img-zoom-out img {
+    object-fit: contain;
 }
 
 .card-title {
@@ -460,6 +474,10 @@ footer {
     nav ul {
         flex-direction: column;
         gap: 12px;
+    }
+
+    nav ul li:last-child {
+        margin-left: 0;
     }
 
     nav button {
