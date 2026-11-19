@@ -12,36 +12,29 @@
     <header>
         <div class="header-container">
             <a href="#" class="logo">ShoalBiz 魚樂圈</a>
-            
-            <!-- 手機版漢堡按鈕 -->
             <button class="hamburger-btn" id="hamburgerToggle" aria-label="選單">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-
-            <!-- 導覽列分頁按鈕 -->
             <nav id="navMenu">
                 <ul>
-                    <li><button class="tab-btn active" data-target="section1">用具</button></li>
-                    <li><button class="tab-btn" data-target="section2">藥水</button></li>
-                    <li><button class="tab-btn" data-target="section3">科普</button></li>
+                    <li><button type="button" class="tab-btn active" data-target="section1">用具</button></li>
+                    <li><button type="button" class="tab-btn" data-target="section2">藥水</button></li>
+                    <li><button type="button" class="tab-btn" data-target="section3">科普</button></li>
+                    <li><button type="button" class="tab-btn" data-target="section4">標籤</button></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- ==================== 用具區 ==================== -->
+        <!-- 用具區 -->
         <section id="section1" class="section-content active">
             <div class="section-top-bar">
                 <h1 class="section-title">用具</h1>
             </div>
-
-            <!-- 網格卡片區：電腦 3 欄 -> 平板 2 欄 -> 手機 1 欄，自動換行往下排 -->
             <div class="card-grid">
-                
-                <!-- 第 1 張卡片PRO-SCISSORS SHORT -->
                 <article class="card-item" 
                     data-img="https://aquaforestaquarium.com/cdn/shop/products/Pro-Scissors-Short_St_086A0566_1024x1024.jpg?v=1618809754"
                     data-tag="剪刀"
@@ -59,8 +52,24 @@
                     </div>
                 </article>
 
-                <!-- 第 2 張卡片PRO-SCISSORS -->
-                 <article class="card-item" 
+                <article class="card-item" 
+                    data-img="https://aquaforestaquarium.com/cdn/shop/files/Suikeisheet_02_square_1024x1024.jpg?v=1731479555"
+                    data-tag="其他"
+                    data-code="¥4,180/ W750-D750mm . 貨號106-159"
+                    data-title="SUIKEI SHEET"
+                    data-jp="防汚コーティングを施した作業用シートです。ADAロゴタグ付き。"
+                    data-zh="經過防污塗層處理的水族作業用墊，可鋪在工作區域，方便進行水草造景與水族相關作業，印有小巧的 ADA Logo。">
+                    <div class="card-thumb">
+                        <img src="https://aquaforestaquarium.com/cdn/shop/files/Suikeisheet_02_square_1024x1024.jpg?v=1731479555" alt="">
+                    </div>
+                    <h2 class="card-title">SUIKEI SHEET｜工作墊</h2>
+                    <div class="card-meta">
+                        <span class="meta-tag">其他</span>
+                        <span class="meta-code">¥4,180</span>
+                    </div>
+                </article>
+
+                <article class="card-item" 
                     data-img="https://aquaforestaquarium.com/cdn/shop/products/Trimming_Scissors_St_1024x1024.jpg?v=1618811273"
                     data-tag="剪刀"
                     data-code="¥9,680 / 255mm . 貨號106-068"
@@ -77,8 +86,6 @@
                     </div>
                 </article>
 
-
-                <!-- 第 3 張卡片PRO-SCISSORS NUDE -->
                 <article class="card-item" 
                     data-img="https://aquaforestaquarium.com/cdn/shop/products/Pro_Scissors_Nude_1024x1024.jpg?v=1589511676"
                     data-tag="剪刀"
@@ -89,14 +96,13 @@
                     <div class="card-thumb">
                         <img src="https://aquaforestaquarium.com/cdn/shop/products/Pro_Scissors_Nude_1024x1024.jpg?v=1589511676" alt="">
                     </div>
-                    <h2 class="card-title">PRO-SCISSORS NUDE｜特殊水草剪</h2>
+                    <h2 class="card-title">PRO-SCISSORS NUDE｜特型水草剪</h2>
                     <div class="card-meta">
                         <span class="meta-tag">剪刀</span>
                         <span class="meta-code">¥11,000</span>
                     </div>
                 </article>
 
-                <!-- 第 4 張卡片PRO-SCISSORS SPRING 第二排第一個 -->
                 <article class="card-item" 
                     data-img="https://aquaforestaquarium.com/cdn/shop/products/Pro_Scissors_Spring_1_large.jpg?v=1618810127"
                     data-tag="剪刀"
@@ -114,15 +120,30 @@
                     </div>
                 </article>
 
+                <article class="card-item" 
+                    data-img="https://aquaforestaquarium.com/cdn/shop/products/Pro_Scissors_Wave_1024x1024.jpg?v=1618810569"
+                    data-tag="剪刀"
+                    data-code="¥12,100 / 200mm . 貨號106-077"
+                    data-title="PRO-SCISSORS WAVE"
+                    data-jp="使用角度により、さまざまなトリミングシーンに対応します。"
+                    data-zh="根據使用角度，可以應對各種不同的修剪情境。※剪刀本身的彎曲／波浪形狀，配合不同的拿法與入水角度，可以從不同方向修剪水草。">
+                    <div class="card-thumb">
+                        <img src="https://aquaforestaquarium.com/cdn/shop/products/Pro_Scissors_Wave_1024x1024.jpg?v=1618810569" alt="">
+                    </div>
+                    <h2 class="card-title">PRO-SCISSORS WAVE｜多彎水草剪</h2>
+                    <div class="card-meta">
+                        <span class="meta-tag">剪刀</span>
+                        <span class="meta-code">¥12,100</span>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <!-- ==================== 藥水區 ==================== -->
+        <!-- 藥水區 -->
         <section id="section2" class="section-content">
             <div class="section-top-bar">
                 <h1 class="section-title">藥水</h1>
             </div>
-
             <div class="card-grid">
                 <article class="card-item" 
                     data-img="https://img.icons8.com/deco-glyph/1200/under-construction.jpg"
@@ -143,12 +164,11 @@
             </div>
         </section>
 
-        <!-- ==================== 科普區 ==================== -->
+        <!-- 科普區 -->
         <section id="section3" class="section-content">
             <div class="section-top-bar">
                 <h1 class="section-title">科普</h1>
             </div>
-
             <div class="card-grid">
                 <article class="card-item" 
                     data-img="https://img.icons8.com/deco-glyph/1200/under-construction.jpg"
@@ -166,6 +186,29 @@
                         <span class="meta-code">¥價錢</span>
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <!-- 標籤區 -->
+        <section id="section4" class="section-content">
+            <div id="tagOverviewView">
+                <div class="section-top-bar">
+                    <h1 class="section-title">標籤</h1>
+                </div>
+                <div class="tag-card-grid" id="tagCardGrid"></div>
+            </div>
+
+            <div id="tagDetailView" style="display: none;">
+                <div class="section-top-bar tag-detail-header">
+                    <button type="button" class="back-pill-btn" id="backToTagsBtn" aria-label="返回所有標籤">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </button>
+                    <h1 class="section-title" id="selectedTagTitle"></h1>
+                </div>
+                <div class="card-grid" id="filteredCardsGrid"></div>
             </div>
         </section>
     </main>
@@ -174,28 +217,24 @@
         <p>Copyright © 2026 ShoalBiz 魚樂圈.All Rights Reserved</p>
     </footer>
 
-    <!-- ==================== 點擊卡片後的詳細內容彈窗 (Modal) ==================== -->
+    <!-- 詳細內容彈窗 -->
     <div class="modal-overlay" id="detailModal">
         <div class="modal-container">
-            <button class="modal-close" id="closeModalBtn" aria-label="關閉">✕</button>
-            
+            <button type="button" class="modal-close" id="closeModalBtn" aria-label="關閉">✕</button>
             <div class="modal-body">
                 <div class="modal-image">
                     <img id="modalImg" src="" alt="">
                 </div>
-                
                 <div class="modal-info">
                     <div class="modal-meta">
                         <span class="meta-tag" id="modalTag">TAG</span>
                         <span class="meta-code" id="modalCode">PRICE</span>
                     </div>
                     <h2 class="modal-title" id="modalTitle">標題</h2>
-                    
                     <div class="lang-section">
                         <span class="lang-badge">原文</span>
                         <p id="modalJpText" class="jp-desc"></p>
                     </div>
-
                     <div class="lang-section">
                         <span class="lang-badge">繁體中文</span>
                         <p id="modalZhText" class="zh-desc"></p>
@@ -205,81 +244,151 @@
         </div>
     </div>
 
-    <!-- 互動腳本 -->
     <script>
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const sections = document.querySelectorAll('.section-content');
-        const hamburgerToggle = document.getElementById('hamburgerToggle');
-        const navMenu = document.getElementById('navMenu');
+        // 自訂各標籤封面圖（未填寫則自動抓該標籤第一張卡片的圖片）
+        const tagCovers = {
+            "剪刀": "https://image1.shopserve.jp/aquatailors.jp/pic-labo/llimg/253000358000_1.jpg",
+            "類別": "https://img.icons8.com/deco-glyph/1200/under-construction.jpg"
+        };
 
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                sections.forEach(sec => sec.classList.remove('active'));
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const sections = document.querySelectorAll('.section-content');
+            const hamburgerToggle = document.getElementById('hamburgerToggle');
+            const navMenu = document.getElementById('navMenu');
+            const detailModal = document.getElementById('detailModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
 
-                button.classList.add('active');
-                const targetId = button.getAttribute('data-target');
-                document.getElementById(targetId).classList.add('active');
+            const tagOverviewView = document.getElementById('tagOverviewView');
+            const tagDetailView = document.getElementById('tagDetailView');
+            const tagCardGrid = document.getElementById('tagCardGrid');
+            const backToTagsBtn = document.getElementById('backToTagsBtn');
+            const selectedTagTitle = document.getElementById('selectedTagTitle');
+            const filteredCardsGrid = document.getElementById('filteredCardsGrid');
 
-                navMenu.classList.remove('open');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
+            // 點擊卡片開啟詳細彈窗
+            function bindCardModalEvent(card) {
+                card.addEventListener('click', () => {
+                    document.getElementById('modalImg').src = card.getAttribute('data-img') || '';
+                    document.getElementById('modalTag').textContent = card.getAttribute('data-tag') || '';
+                    document.getElementById('modalCode').textContent = card.getAttribute('data-code') || '';
+                    document.getElementById('modalTitle').textContent = card.getAttribute('data-title') || '';
+                    document.getElementById('modalJpText').textContent = card.getAttribute('data-jp') || '';
+                    document.getElementById('modalZhText').textContent = card.getAttribute('data-zh') || '';
 
-        hamburgerToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
-        });
-
-        const cardItems = document.querySelectorAll('.card-item');
-        const detailModal = document.getElementById('detailModal');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-
-        cardItems.forEach(card => {
-            card.addEventListener('click', () => {
-                document.getElementById('modalImg').src = card.getAttribute('data-img');
-                document.getElementById('modalTag').textContent = card.getAttribute('data-tag');
-                document.getElementById('modalCode').textContent = card.getAttribute('data-code');
-                document.getElementById('modalTitle').textContent = card.getAttribute('data-title');
-                document.getElementById('modalJpText').textContent = card.getAttribute('data-jp');
-                document.getElementById('modalZhText').textContent = card.getAttribute('data-zh');
-
-                detailModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        function closeModal() {
-            detailModal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        closeModalBtn.addEventListener('click', closeModal);
-        detailModal.addEventListener('click', (e) => {
-            if (e.target === detailModal) {
-                closeModal();
+                    detailModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
             }
+
+            document.querySelectorAll('.card-item').forEach(bindCardModalEvent);
+
+            // 關閉彈窗
+            function closeModal() {
+                detailModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            closeModalBtn.addEventListener('click', closeModal);
+            detailModal.addEventListener('click', (e) => {
+                if (e.target === detailModal) closeModal();
+            });
+
+            // 收集各分頁卡片的 data-tag
+            function collectTags() {
+                const allCards = Array.from(document.querySelectorAll('main > section:not(#section4) .card-item'));
+                const tagMap = new Map();
+
+                allCards.forEach(card => {
+                    const rawTag = (card.getAttribute('data-tag') || '').trim();
+                    if (!rawTag) return;
+
+                    if (!tagMap.has(rawTag)) {
+                        const coverImage = tagCovers[rawTag] || card.getAttribute('data-img') || '';
+                        tagMap.set(rawTag, {
+                            tag: rawTag,
+                            img: coverImage,
+                            cards: []
+                        });
+                    }
+                    tagMap.get(rawTag).cards.push(card);
+                });
+
+                return Array.from(tagMap.values());
+            }
+
+            // 渲染標籤方塊
+            function renderTagTiles() {
+                const tagsData = collectTags();
+                tagCardGrid.innerHTML = '';
+
+                tagsData.forEach(item => {
+                    const tile = document.createElement('article');
+                    tile.className = 'tag-tile';
+                    tile.innerHTML = `
+                        <img src="${item.img}" alt="${item.tag}">
+                        <div class="tag-tile-overlay">
+                            <span class="tag-tile-main">${item.tag}</span>
+                            <span class="tag-tile-sub">${item.cards.length} 項內容</span>
+                        </div>
+                    `;
+                    tile.addEventListener('click', () => openTagDetail(item.tag, item.cards));
+                    tagCardGrid.appendChild(tile);
+                });
+            }
+
+            // 集中顯示單一標籤的所有卡片
+            function openTagDetail(tagName, matchingCards) {
+                selectedTagTitle.textContent = `${tagName}（${matchingCards.length}）`;
+                filteredCardsGrid.innerHTML = '';
+
+                matchingCards.forEach(originalCard => {
+                    const clone = originalCard.cloneNode(true);
+                    bindCardModalEvent(clone);
+                    filteredCardsGrid.appendChild(clone);
+                });
+
+                tagOverviewView.style.display = 'none';
+                tagDetailView.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // 返回標籤總覽
+            backToTagsBtn.addEventListener('click', () => {
+                tagDetailView.style.display = 'none';
+                tagOverviewView.style.display = 'block';
+                renderTagTiles();
+            });
+
+            // 分頁按鈕切換
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    sections.forEach(sec => sec.classList.remove('active'));
+
+                    button.classList.add('active');
+                    const targetId = button.getAttribute('data-target');
+                    const targetSec = document.getElementById(targetId);
+                    if (targetSec) targetSec.classList.add('active');
+
+                    if (targetId === 'section4') {
+                        tagDetailView.style.display = 'none';
+                        tagOverviewView.style.display = 'block';
+                        renderTagTiles();
+                    }
+
+                    navMenu.classList.remove('open');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+
+            // 手機版漢堡選單開合
+            hamburgerToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('open');
+            });
         });
     </script>
 </body>
 </html>
 
- <!-- UI卡模板
-
- <article class="card-item" 
-                    data-img="https://aquaforestaquarium.com/cdn/shop/products/Pro-Scissors-Short_St_086A0566_1024x1024.jpg?v=1618809754"
-                    data-tag="類別"
-                    data-code="¥價錢 / 尺寸000mm . 貨號000-000"
-                    data-title="產品名稱"
-                    data-jp="原文介紹"
-                    data-zh="中文介紹">
-                    <div class="card-thumb">
-                        <img src="https://aquaforestaquarium.com/cdn/shop/products/Pro-Scissors-Short_St_086A0566_1024x1024.jpg?v=1618809754" alt="">
-                    </div>
-                    <h2 class="card-title">產品名稱｜適合..</h2>
-                    <div class="card-meta">
-                        <span class="meta-tag">類別</span>
-                        <span class="meta-code">¥價錢</span>
-                    </div>
-                </article>
-
- -->
+<!-- 新增卡片模板：複製整段 <article class="card-item"> 貼到對應的 .card-grid 即可 -->

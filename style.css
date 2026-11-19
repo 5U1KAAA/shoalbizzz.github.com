@@ -1,4 +1,4 @@
-/* --- 基礎與日系極簡風格設定 --- */
+/* 基礎與日系極簡風格 */
 :root {
     --bg-color: #ffffff;
     --header-bg: #111111;
@@ -24,13 +24,13 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* --- 頂部黑底導覽列 --- */
+/* 頂部導覽列 */
 header {
     background-color: var(--header-bg);
     color: #ffffff;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 200;
 }
 
 .header-container {
@@ -104,7 +104,7 @@ nav button.active::after {
     background-color: #ffffff;
 }
 
-/* --- 主內容區塊 --- */
+/* 主內容區塊 */
 main {
     max-width: 1200px;
     margin: 56px auto;
@@ -137,12 +137,12 @@ main {
     color: var(--text-main);
 }
 
-/* --- 響應式卡片網格 (預設：3個一排，自動往下換行) --- */
+/* 卡片網格（預設 3 欄） */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 嚴格三等分，每 3 個自動換行 */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 28px;
-    row-gap: 48px; /* 上下排之間的留白間距 */
+    row-gap: 48px;
 }
 
 .card-item {
@@ -156,7 +156,6 @@ main {
     opacity: 0.85;
 }
 
-/* 圖片容器隨網格寬度等比例縮放 */
 .card-thumb {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -212,7 +211,92 @@ main {
     font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-/* --- 點擊卡片後的詳細內容彈窗 (Modal) --- */
+/* 標籤方塊網格 */
+.tag-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 28px;
+    row-gap: 36px;
+}
+
+.tag-tile {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1.08;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--card-bg);
+}
+
+.tag-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.tag-tile:hover img {
+    transform: scale(1.04);
+}
+
+.tag-tile-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.68) 0%, rgba(0, 0, 0, 0.08) 48%, rgba(0, 0, 0, 0) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    padding: 24px 16px;
+    color: #ffffff;
+}
+
+.tag-tile-main {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+    margin-bottom: 4px;
+}
+
+.tag-tile-sub {
+    font-size: 0.82rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* 返回所有標籤按鈕 */
+.tag-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 36px;
+}
+
+.back-pill-btn {
+    width: 64px;
+    height: 38px;
+    border-radius: 999px;
+    background-color: #181818;
+    color: #ffffff;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.back-pill-btn:hover {
+    background-color: #333333;
+    transform: translateX(-2px);
+}
+
+/* 詳細內容彈窗 */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -328,7 +412,7 @@ main {
     line-height: 1.8;
 }
 
-/* --- 頁尾 --- */
+/* 頁尾 */
 footer {
     background-color: #fafafa;
     border-top: 1px solid var(--border-color);
@@ -338,16 +422,17 @@ footer {
     color: var(--text-sub);
 }
 
-/* --- 響應式斷點 1：螢幕寬度小於 960px 時，自動變成「兩個一排」 --- */
+/* 響應式：2 欄 */
 @media (max-width: 960px) {
-    .card-grid {
+    .card-grid,
+    .tag-card-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         column-gap: 20px;
         row-gap: 36px;
     }
 }
 
-/* --- 響應式斷點 2：螢幕寬度小於 640px (手機版) 時，自動變成「一個一排」 --- */
+/* 響應式：1 欄與漢堡選單 */
 @media (max-width: 640px) {
     .hamburger-btn {
         display: flex;
@@ -363,6 +448,7 @@ footer {
         top: 64px;
         left: 0;
         width: 100%;
+        z-index: 300;
         background-color: var(--header-bg);
         padding: 16px 24px;
     }
@@ -386,9 +472,19 @@ footer {
         display: none;
     }
 
-    .card-grid {
+    .card-grid,
+    .tag-card-grid {
         grid-template-columns: minmax(0, 1fr);
         row-gap: 32px;
+    }
+
+    .tag-detail-header {
+        gap: 14px;
+    }
+
+    .back-pill-btn {
+        width: 56px;
+        height: 34px;
     }
 
     .modal-container {
