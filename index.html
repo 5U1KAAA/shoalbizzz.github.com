@@ -12,7 +12,7 @@
     <header>
         <div class="header-container">
             <a href="#" class="logo">ShoalBiz 魚樂圈</a>
-            <button class="hamburger-btn" id="hamburgerToggle" aria-label="選單">
+            <button type="button" class="hamburger-btn" id="hamburgerToggle" aria-label="選單">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -66,6 +66,40 @@
                     <div class="card-meta">
                         <span class="meta-tag">其他</span>
                         <span class="meta-code">¥4,180</span>
+                    </div>
+                </article>
+
+                <article class="card-item" 
+                    data-img="https://aquaforestaquarium.com/cdn/shop/products/Pinsettes_Series_M_086A0610_1024x1024.jpg?v=1594524282"
+                    data-tag="夾子"
+                    data-code="¥4,070 / 210mm . 貨號106-062"
+                    data-title="PRO-PINSETTES"
+                    data-jp="pinttes m。バネの強さと先端精度にこだわった水草専用ピンセットです。"
+                    data-zh="中型。專為水草設計的鑷子，講究彈簧的力度與前端的精密度。※尖端細，適合精確種植，例如前景草、石頭縫隙。">
+                    <div class="card-thumb">
+                        <img src="https://aquaforestaquarium.com/cdn/shop/products/Pinsettes_Series_M_086A0610_1024x1024.jpg?v=1594524282" alt="">
+                    </div>
+                    <h2 class="card-title">PRO-PINSETTES｜標準水草夾</h2>
+                    <div class="card-meta">
+                        <span class="meta-tag">夾子</span>
+                        <span class="meta-code">¥4,070</span>
+                    </div>
+                </article>
+
+                <article class="card-item" 
+                    data-img="https://aquaforestaquarium.com/cdn/shop/products/Pro_Pinsettes_Grip_type_M_086A0613_large.jpg?v=1594528769"
+                    data-tag="夾子"
+                    data-code="¥3,850 / 260mm . 貨號106-066"
+                    data-title="PRO-PINSETTES GRIP TYPE"
+                    data-jp="pinttes m。大きな株状水草の植栽に適した、グリップ力のあるピンセットです。"
+                    data-zh="中型。具有較強夾持力的鑷子，適合用於大型叢生／株狀水草的種植。※尖端較厚，可以更穩地夾住較粗、較大的植物。">
+                    <div class="card-thumb">
+                        <img src="https://aquaforestaquarium.com/cdn/shop/products/Pro_Pinsettes_Grip_type_M_086A0613_large.jpg?v=1594528769" alt="">
+                    </div>
+                    <h2 class="card-title">PRO-PINSETTES GRIP TYPE｜寬頭/平頭水草夾</h2>
+                    <div class="card-meta">
+                        <span class="meta-tag">夾子</span>
+                        <span class="meta-code">¥3,850</span>
                     </div>
                 </article>
 
@@ -191,6 +225,14 @@
 
         <!-- 標籤區 -->
         <section id="section4" class="section-content">
+            <!-- 自訂標籤封面圖區（直接在這裡複製貼上 <span ...> 即可，沒設定的標籤會自動抓該分類第一張卡片的圖） -->
+            <div id="customTagCovers" style="display: none;">
+                <span data-tag="剪刀" data-cover="https://aquaforestaquarium.com/cdn/shop/products/image_c1b1665f-e21f-4fb2-bc35-e5b1c2eb8664_1024x1024.jpg?v=1702884479"></span>
+                <span data-tag="夾子" data-cover="https://www.garnelio.de/media/image/53/66/2f/ADA-Pro-Pinsettes-Grip-02yinh1NhfQIMft_430x430@2x.jpg"></span>
+                <span data-tag="其他" data-cover="https://aquaforestaquarium.com/cdn/shop/files/Suikeisheet_02_square_1024x1024.jpg?v=1731479555"></span>
+                <span data-tag="類別" data-cover="https://img.icons8.com/deco-glyph/1200/under-construction.jpg"></span>
+            </div>
+
             <div id="tagOverviewView">
                 <div class="section-top-bar">
                     <h1 class="section-title">標籤</h1>
@@ -245,150 +287,152 @@
     </div>
 
     <script>
-        // 自訂各標籤封面圖（未填寫則自動抓該標籤第一張卡片的圖片）
-        const tagCovers = {
-            "剪刀": "https://image1.shopserve.jp/aquatailors.jp/pic-labo/llimg/253000358000_1.jpg",
-            "類別": "https://img.icons8.com/deco-glyph/1200/under-construction.jpg"
-        };
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const sections = document.querySelectorAll('.section-content');
+        const hamburgerToggle = document.getElementById('hamburgerToggle');
+        const navMenu = document.getElementById('navMenu');
+        const detailModal = document.getElementById('detailModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            const sections = document.querySelectorAll('.section-content');
-            const hamburgerToggle = document.getElementById('hamburgerToggle');
-            const navMenu = document.getElementById('navMenu');
-            const detailModal = document.getElementById('detailModal');
-            const closeModalBtn = document.getElementById('closeModalBtn');
+        const tagOverviewView = document.getElementById('tagOverviewView');
+        const tagDetailView = document.getElementById('tagDetailView');
+        const tagCardGrid = document.getElementById('tagCardGrid');
+        const backToTagsBtn = document.getElementById('backToTagsBtn');
+        const selectedTagTitle = document.getElementById('selectedTagTitle');
+        const filteredCardsGrid = document.getElementById('filteredCardsGrid');
 
-            const tagOverviewView = document.getElementById('tagOverviewView');
-            const tagDetailView = document.getElementById('tagDetailView');
-            const tagCardGrid = document.getElementById('tagCardGrid');
-            const backToTagsBtn = document.getElementById('backToTagsBtn');
-            const selectedTagTitle = document.getElementById('selectedTagTitle');
-            const filteredCardsGrid = document.getElementById('filteredCardsGrid');
+        // 點擊卡片開啟詳細彈窗
+        function bindCardModalEvent(card) {
+            card.addEventListener('click', () => {
+                document.getElementById('modalImg').src = card.getAttribute('data-img') || '';
+                document.getElementById('modalTag').textContent = card.getAttribute('data-tag') || '';
+                document.getElementById('modalCode').textContent = card.getAttribute('data-code') || '';
+                document.getElementById('modalTitle').textContent = card.getAttribute('data-title') || '';
+                document.getElementById('modalJpText').textContent = card.getAttribute('data-jp') || '';
+                document.getElementById('modalZhText').textContent = card.getAttribute('data-zh') || '';
 
-            // 點擊卡片開啟詳細彈窗
-            function bindCardModalEvent(card) {
-                card.addEventListener('click', () => {
-                    document.getElementById('modalImg').src = card.getAttribute('data-img') || '';
-                    document.getElementById('modalTag').textContent = card.getAttribute('data-tag') || '';
-                    document.getElementById('modalCode').textContent = card.getAttribute('data-code') || '';
-                    document.getElementById('modalTitle').textContent = card.getAttribute('data-title') || '';
-                    document.getElementById('modalJpText').textContent = card.getAttribute('data-jp') || '';
-                    document.getElementById('modalZhText').textContent = card.getAttribute('data-zh') || '';
+                detailModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
 
-                    detailModal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                });
-            }
+        document.querySelectorAll('.card-item').forEach(bindCardModalEvent);
 
-            document.querySelectorAll('.card-item').forEach(bindCardModalEvent);
+        // 關閉彈窗
+        function closeModal() {
+            detailModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
-            // 關閉彈窗
-            function closeModal() {
-                detailModal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
+        closeModalBtn.addEventListener('click', closeModal);
+        detailModal.addEventListener('click', (e) => {
+            if (e.target === detailModal) closeModal();
+        });
 
-            closeModalBtn.addEventListener('click', closeModal);
-            detailModal.addEventListener('click', (e) => {
-                if (e.target === detailModal) closeModal();
+        // 讀取自訂封面設定
+        function getCustomCoverMap() {
+            const map = {};
+            document.querySelectorAll('#customTagCovers span').forEach(el => {
+                const tag = (el.getAttribute('data-tag') || '').trim();
+                const cover = (el.getAttribute('data-cover') || '').trim();
+                if (tag && cover) map[tag] = cover;
+            });
+            return map;
+        }
+
+        // 收集各分頁卡片的 data-tag
+        function collectTags() {
+            const customCovers = getCustomCoverMap();
+            const allCards = Array.from(document.querySelectorAll('main > section:not(#section4) .card-item'));
+            const tagMap = new Map();
+
+            allCards.forEach(card => {
+                const rawTag = (card.getAttribute('data-tag') || '').trim();
+                if (!rawTag) return;
+
+                if (!tagMap.has(rawTag)) {
+                    const coverImage = customCovers[rawTag] || card.getAttribute('data-img') || '';
+                    tagMap.set(rawTag, {
+                        tag: rawTag,
+                        img: coverImage,
+                        cards: []
+                    });
+                }
+                tagMap.get(rawTag).cards.push(card);
             });
 
-            // 收集各分頁卡片的 data-tag
-            function collectTags() {
-                const allCards = Array.from(document.querySelectorAll('main > section:not(#section4) .card-item'));
-                const tagMap = new Map();
+            return Array.from(tagMap.values());
+        }
 
-                allCards.forEach(card => {
-                    const rawTag = (card.getAttribute('data-tag') || '').trim();
-                    if (!rawTag) return;
+        // 渲染標籤方塊
+        function renderTagTiles() {
+            const tagsData = collectTags();
+            tagCardGrid.innerHTML = '';
 
-                    if (!tagMap.has(rawTag)) {
-                        const coverImage = tagCovers[rawTag] || card.getAttribute('data-img') || '';
-                        tagMap.set(rawTag, {
-                            tag: rawTag,
-                            img: coverImage,
-                            cards: []
-                        });
-                    }
-                    tagMap.get(rawTag).cards.push(card);
-                });
+            tagsData.forEach(item => {
+                const tile = document.createElement('article');
+                tile.className = 'tag-tile';
+                tile.innerHTML = `
+                    <img src="${item.img}" alt="${item.tag}">
+                    <div class="tag-tile-overlay">
+                        <span class="tag-tile-main">${item.tag}</span>
+                        <span class="tag-tile-sub">${item.cards.length} 項內容</span>
+                    </div>
+                `;
+                tile.addEventListener('click', () => openTagDetail(item.tag, item.cards));
+                tagCardGrid.appendChild(tile);
+            });
+        }
 
-                return Array.from(tagMap.values());
-            }
+        // 集中顯示單一標籤的所有卡片
+        function openTagDetail(tagName, matchingCards) {
+            selectedTagTitle.textContent = `${tagName}（${matchingCards.length}）`;
+            filteredCardsGrid.innerHTML = '';
 
-            // 渲染標籤方塊
-            function renderTagTiles() {
-                const tagsData = collectTags();
-                tagCardGrid.innerHTML = '';
+            matchingCards.forEach(originalCard => {
+                const clone = originalCard.cloneNode(true);
+                bindCardModalEvent(clone);
+                filteredCardsGrid.appendChild(clone);
+            });
 
-                tagsData.forEach(item => {
-                    const tile = document.createElement('article');
-                    tile.className = 'tag-tile';
-                    tile.innerHTML = `
-                        <img src="${item.img}" alt="${item.tag}">
-                        <div class="tag-tile-overlay">
-                            <span class="tag-tile-main">${item.tag}</span>
-                            <span class="tag-tile-sub">${item.cards.length} 項內容</span>
-                        </div>
-                    `;
-                    tile.addEventListener('click', () => openTagDetail(item.tag, item.cards));
-                    tagCardGrid.appendChild(tile);
-                });
-            }
+            tagOverviewView.style.display = 'none';
+            tagDetailView.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-            // 集中顯示單一標籤的所有卡片
-            function openTagDetail(tagName, matchingCards) {
-                selectedTagTitle.textContent = `${tagName}（${matchingCards.length}）`;
-                filteredCardsGrid.innerHTML = '';
+        // 返回標籤總覽
+        backToTagsBtn.addEventListener('click', () => {
+            tagDetailView.style.display = 'none';
+            tagOverviewView.style.display = 'block';
+            renderTagTiles();
+        });
 
-                matchingCards.forEach(originalCard => {
-                    const clone = originalCard.cloneNode(true);
-                    bindCardModalEvent(clone);
-                    filteredCardsGrid.appendChild(clone);
-                });
+        // 分頁按鈕切換
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                sections.forEach(sec => sec.classList.remove('active'));
 
-                tagOverviewView.style.display = 'none';
-                tagDetailView.style.display = 'block';
+                button.classList.add('active');
+                const targetId = button.getAttribute('data-target');
+                const targetSec = document.getElementById(targetId);
+                if (targetSec) targetSec.classList.add('active');
+
+                if (targetId === 'section4') {
+                    tagDetailView.style.display = 'none';
+                    tagOverviewView.style.display = 'block';
+                    renderTagTiles();
+                }
+
+                navMenu.classList.remove('open');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-
-            // 返回標籤總覽
-            backToTagsBtn.addEventListener('click', () => {
-                tagDetailView.style.display = 'none';
-                tagOverviewView.style.display = 'block';
-                renderTagTiles();
             });
+        });
 
-            // 分頁按鈕切換
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    sections.forEach(sec => sec.classList.remove('active'));
-
-                    button.classList.add('active');
-                    const targetId = button.getAttribute('data-target');
-                    const targetSec = document.getElementById(targetId);
-                    if (targetSec) targetSec.classList.add('active');
-
-                    if (targetId === 'section4') {
-                        tagDetailView.style.display = 'none';
-                        tagOverviewView.style.display = 'block';
-                        renderTagTiles();
-                    }
-
-                    navMenu.classList.remove('open');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            });
-
-            // 手機版漢堡選單開合
-            hamburgerToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('open');
-            });
+        // 手機版漢堡選單開合
+        hamburgerToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
         });
     </script>
 </body>
 </html>
-
-<!-- 新增卡片模板：複製整段 <article class="card-item"> 貼到對應的 .card-grid 即可 -->
